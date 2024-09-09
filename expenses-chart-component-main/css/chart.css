@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+/* Primary  */
+--Soft-red: hsl(10, 79%, 65%);
+--Cyan: hsl(186, 34%, 60%); 
+
+/* Neutral  */
+--Dark-brown: hsl(25, 47%, 15%);
+--Medium-brown: hsl(28, 10%, 53%);
+--Cream: hsl(27, 66%, 92%);
+--Very-pale-orange: hsl(33, 100%, 98%);
+}
+
+body{
+    background-color: var(--Cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;  
+}
+
+main{
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Balance Chart styles */
+
+.balance-chart__bar {
+    background-color: var(--Soft-red);
+    width: 33.75rem;
+    height: 7.813rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.balance-chart__bar-balance {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+    align-items: center;
+}
+
+.balance-chart__bar-balance p, 
+.balance-chart__bar-balance small {
+    color: var(--Very-pale-orange);
+}
+
+.balance-chart__bar-balance small {
+    font-weight: 200;
+}
+
+.balance-chart__bar-balance p {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Balance Chart styles end */
+
+
+/* Dashboard Chart styles */
+
+.dashboard-chart__bar {
+    background-color: var(--Very-pale-orange);
+    width: 33.75rem;
+    height: 31.938rem;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+}
+
+.dashboard-chart__bar-chart {
+}
+
+.dashboard-chart__bar-chart-item {
+    display: flex;
+        justify-content: center;
+}
+
+.dashboard-chart__bar-chart-item-bar-1 {
+    background-color: var(--Soft-red);
+}
+
+.dashboard-chart__bar-chart-item-bar-2 {
+    background-color: var(--Soft-red);
+}
+
+.dashboard-chart__bar-chart-item-bar-3 {
+    background-color: var(--Soft-red);
+
+}
+
+.dashboard-chart__bar-chart-item-bar-4 {
+    background-color: var(--Soft-red);
+
+}
+
+.dashboard-chart__bar-chart-item-bar-5 {
+    background-color: var(--Soft-red);
+}
+
+.dashboard-chart__bar-chart-item-bar-6 {
+    background-color: var(--Soft-red);
+}
+
+.dashboard-chart__bar-chart-item-bar-7 {
+    background-color: var(--Soft-red);
+}
+
+.dashboard-chart__bar-chart-item-bar {
+
+}
+
+.dashboard-chart__bar-chart-item-day {
+
+}
+
+.month-totals { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
+}
+
+.month-totals__total {}
+
+.month-totals__percentage {}
+
+/* Dashboard Chart styles end */
+@media screen and (max-width: 375px) {
+    .balance-chart__bar {
+        width: 20rem;
+    }
+}
