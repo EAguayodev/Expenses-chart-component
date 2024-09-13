@@ -1,0 +1,1 @@
+const graphDagh = document.querySelectorAll('graph-bar');

@@ -67,6 +67,11 @@ main{
 
 /* Dashboard Chart styles */
 
+.dashboard-chart__bar-chart{
+    position: relative;
+    top: 3rem;
+}
+
 .dashboard-chart__bar {
     background-color: var(--Very-pale-orange);
     width: 33.75rem;
@@ -75,42 +80,104 @@ main{
     padding: 1.5rem 2rem;
 }
 
-.dashboard-chart__bar-chart {
+.dashboard-chart__bar h3{
+    color: var(--Dark-brown);
+    font-weight: 700;
 }
 
 .dashboard-chart__bar-chart-item {
-    display: flex;
-        justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 460.5px;
+    height: 178px;
+    border-radius: 0.135rem;
 }
 
 .dashboard-chart__bar-chart-item-bar-1 {
     background-color: var(--Soft-red);
+    width: 3.148rem;
+    height: 3.125rem;
+    border-radius: 0.135rem;
+    position: relative;
+    top: 7.5rem;
+    left: -0.2rem;
 }
 
 .dashboard-chart__bar-chart-item-bar-2 {
     background-color: var(--Soft-red);
+    width: 3.148rem;
+    height: 6.25rem;
+    border-radius: 0.135rem;
+    top: 4.5rem;
+    left: 0.2rem;
 }
 
 .dashboard-chart__bar-chart-item-bar-3 {
     background-color: var(--Soft-red);
-
+    width: 3.148rem;
+    height: 9.375rem;
+    border-radius: 0.135rem;
+    top: 1.5rem;
+    left: 1rem;
 }
 
 .dashboard-chart__bar-chart-item-bar-4 {
     background-color: var(--Soft-red);
-
+    width: 3.148rem;
+    height: 5.563rem;
+    border-radius: 0.135rem;
+    top: 5.3rem;
+    left: 2rem;
 }
 
 .dashboard-chart__bar-chart-item-bar-5 {
     background-color: var(--Soft-red);
+    width: 3.148rem;
+    height: 4.188rem;
+    border-radius: 0.135rem;
+    top: 6.675rem;
+    left: 2rem;
 }
 
 .dashboard-chart__bar-chart-item-bar-6 {
     background-color: var(--Soft-red);
+    width: 3.148rem;
+    height: 7.75rem;
+    border-radius: 0.135rem;
+    top: 3.1rem;
+    left: 2rem;
 }
 
 .dashboard-chart__bar-chart-item-bar-7 {
     background-color: var(--Soft-red);
+    width: 3.148rem;
+    height: 4.563rem;
+    border-radius: 0.135rem;
+    top: 6.3rem;
+    left: 2.5rem;
+}
+
+.graph-bar {
+    position: relative;
+    /* top: 100px; */
+    cursor: pointer;
+}
+
+.graph-bar:hover {
+    background-color: var(--Cyan);
+}
+
+hr{
+    border: 1.3px solid var(--Cream);
+    position: relative;
+    top: 3rem;
+    width: 28.75rem;
+}
+
+.week-days {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .dashboard-chart__bar-chart-item-bar {
@@ -126,15 +193,75 @@ main{
     justify-content: space-between;
     align-items: center;
     padding: 2rem 2rem;
+    position: relative;
+    top: 3rem;
 }
 
-.month-totals__total {}
+.month-totals__total p{
+    font-size: 2rem;
+    font-weight: 700;
+}
 
-.month-totals__percentage {}
+.month-totals__percentage small, .month-totals__total small{
+    color: var(--Medium-brown);
+}
+
+.month-totals__percentage p{
+    color: var(--Dark-brown);
+    font-weight: 600;
+}
 
 /* Dashboard Chart styles end */
-@media screen and (max-width: 375px) {
+@media (max-width: 48rem) {
+    main{
+        margin: 5rem auto;
+    }
+
     .balance-chart__bar {
-        width: 20rem;
+        height: 6.063rem;
+        width: 21.438rem;
+    }
+
+    .graph-bar{
+        width: 2.063rem;
+    }
+
+    .dashboard-chart__bar-chart-item-bar-2{
+        left: -1.3rem;
+    }
+    
+    .dashboard-chart__bar-chart-item-bar-3 {
+        left: -2.5rem;
+    }
+    
+    .dashboard-chart__bar-chart-item-bar-4 {
+        left: -3.9rem;
+    }
+    
+    .dashboard-chart__bar-chart-item-bar-5 {
+        left: -5.5rem;
+    }
+    
+    .dashboard-chart__bar-chart-item-bar-6 {
+        left: -7.3rem;
+    }
+
+    .dashboard-chart__bar-chart-item-bar-7 {
+        left: -9rem;
+    }
+                                                                                                                                .dashboard-chart__bar-chart-item-bar-2 {}
+
+    .dashboard-chart__bar{
+        height: 25.75rem;
+        width: 21.438rem;
+    }
+
+    hr{
+        top: 1rem;
+    }
+
+    .month-totals{
+        top: 0;
+        padding: 1rem 0rem;
     }
 }
