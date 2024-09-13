@@ -4,7 +4,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    outline: 2px solid red;
 }
 
 :root{
@@ -181,13 +180,13 @@ hr{
     align-items: center;
 }
 
-.dashboard-chart__bar-chart-item-bar {
+/* .dashboard-chart__bar-chart-item-bar {
 
 }
 
 .dashboard-chart__bar-chart-item-day {
 
-}
+} */
 
 .month-totals { 
     display: flex;
