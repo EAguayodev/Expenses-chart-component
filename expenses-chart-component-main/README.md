@@ -14,30 +14,7 @@
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-
 ## Overview
-
-### The challenge
-
-Users should be able to:
-
-- View the bar chart and hover over the individual bars to see the correct amounts for each day
-- See the current day’s bar highlighted in a different colour to the other bars
-- View the optimal layout for the content depending on their device’s screen size
-- See hover states for all interactive elements on the page
-- **Bonus**: Use the JSON data file provided to dynamically size the bars on the chart
-
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-
 
 ### Links
 
@@ -45,6 +22,14 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Live Site URL: [Vercel](https://expenses-chart-component-livid-delta.vercel.app/)
 
 ## My process
+
+I started by analyzing the challenge, which required me to create a dynamic bar chart showing daily expenses from a JSON file. My first step was setting up the HTML structure with graph bars and labels for each day of the week. I added custom data-value attributes to these bars to hold the expense data dynamically.
+
+Next, I wrote a JavaScript function to fetch data from a local JSON file. I made sure that when the data was retrieved, I updated the graph bars' heights based on the expense values and displayed the amounts on hover. I utilized CSS to style the bars, adjusting their heights with percentages to visualize the expenses proportionally.
+
+After fetching the data, I focused on the hover effect, displaying the exact amount above the graph bars when hovered. I avoided using tooltips and instead implemented a smooth hover transition, ensuring the values appeared directly above each bar, making the interaction seamless.
+
+Throughout the process, I refined my approach, optimizing how the data was handled and ensuring the visual elements aligned perfectly with the data provided in the JSON file. Finally, I tested the implementation across various scenarios to make sure the chart was fully responsive and that the data was presented accurately.
 
 ### Built with
 
@@ -56,7 +41,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Learned how to dynamically display json data with spending graphs accessing the json file through using the fetch method in Javascript.
 
 To see how you can add code snippets, see below:
 
@@ -72,42 +57,50 @@ To see how you can add code snippets, see below:
   </div>
 ```
 ```css
-.month-totals { 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 2rem;
+.graph-bar::after {
+    content: attr(data-value);
     position: relative;
-    top: 3rem;
+    top: -30px;
+    /* Adjust positioning based on bar height */
+    left: 5%;
+    padding: 5px;
+    background-color: hsl(25, 47%, 15%);
+    color: white;
+    border-radius: 5px;
+    display: none;
+    font-size: 0.8rem;
 }
 ```
 ```js
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const bars = document.querySelectorAll(".graph-bar");
 
-}
+      // Map each bar to corresponding day in data
+      bars.forEach((bar, index) => {
+        const dayData = data[index];
+        const barHeight = dayData.amount * 2; // Scale amount for bar height
+
+        // Update bar's height
+        bar.style.height = `${barHeight}px`;
+
+        // Set the data-value attribute to show the amount (for hover)
+        bar.setAttribute("data-value", `$${dayData.amount}`);
+      });
+    })
+    .catch((error) => console.error("Error fetching the data:", error));
+});
+
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
+As I am now working as Web Content Editor & Email Marketer on a contract basis, I will be using time off to continue my development in Javascript, json file fetching when needed, and learn what else is in demand in the current market I'm going into Front end web development.
 
 
 ## Author
 
 - Website - [Eric Aguayo](https://www.ericaguayo.com)
 - Frontend Mentor - [@EAguayodev](https://www.frontendmentor.io/profile/EAguayodev)
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.

@@ -1,36 +1,20 @@
-let expenseData = []; // Global variable to fetch json data containing 
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const bars = document.querySelectorAll(".graph-bar");
 
- // Function to update the UI with the expense fetched data
-function showExpenses(period) {
-    // Show monthly expenses when hovered over graph bars
-    const graphData = document.querySelectorAll('.dashboard-chart__bar-chart-item');
+      // Map each bar to corresponding day in data
+      bars.forEach((bar, index) => {
+        const dayData = data[index];
+        const barHeight = dayData.amount * 2; // Scale amount for bar height
 
-    graphData.forEach((graph, index) => {
-        const graphShow = graphData.querySelector('.graph-data');
+        // Update bar's height
+        bar.style.height = `${barHeight}px`;
 
-        graphData.innerText = `${period.graph}`;
+        // Set the data-value attribute to show the amount (for hover)
+        bar.setAttribute("data-value", `$${dayData.amount}`);
+      });
     })
-}
-
-// Fetch data from the local JSON file
- function fetchData() {
-   fetch("./data.json") // Assuming the file is in the same directory
-     .then((response) => response.json())
-     .then((data) => {
-       expenseData = data; // Store fetched expense data
-       dayData = data; // Store fetched day data
-       updateData("amount"); // Initialize with amount data by default
-     })
-     .catch((error) => console.error("Error fetching the data:", error));
- }
-
-//  Event listeners for display of day chart expenses
-document.querySelectorAll('.graph-data').addEventListener('mouseover', function (e) {
-  // body
-  e.preventDefault();
-  updateData('amount')
+    .catch((error) => console.error("Error fetching the data:", error));
 });
-
-
-
-window.onload = fetchData;
